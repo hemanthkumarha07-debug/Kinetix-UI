@@ -1,0 +1,126 @@
+:root {
+  /* Obsidian Dark (Default) */
+  --bg-canvas: #08080A;
+  --bg-surface: #101013;
+  --bg-surface-elevated: #16161A;
+  --bg-surface-active: #1E1E24;
+
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+
+  --text-primary: #F4F4F6;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #63636E;
+
+  --accent: #E4E4E7;
+  --accent-signal: #3B82F6;
+
+  --status-ok: #10B981;
+  --status-warn: #F59E0B;
+  --status-err: #F43F5E;
+
+  --focus-ring: var(--accent-signal);
+  --shadow-elevation: 0 0 0 1px var(--border-subtle), 0 12px 32px -8px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.45), var(--specular-top);
+  --shadow-dropdown: 0 0 0 1px var(--border-strong), 0 20px 40px -12px rgba(0, 0, 0, 0.8), var(--specular-top);
+}
+
+[data-theme="light"] {
+  /* Architectural Alabaster */
+  --bg-canvas: #FAFAFB;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F4F4F6;
+  --bg-surface-active: #EAEAEF;
+
+  --border-subtle: rgba(9, 9, 11, 0.08);
+  --border-strong: rgba(9, 9, 11, 0.16);
+
+  --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  --text-tertiary: #8E8E98;
+
+  --accent: #18181B;
+  --accent-signal: #2563EB;
+
+  --status-ok: #059669;
+  --status-warn: #D97706;
+  --status-err: #E11D48;
+
+  --focus-ring: var(--accent-signal);
+  --shadow-elevation: 0 0 0 1px var(--border-subtle), 0 12px 32px -8px rgba(9, 9, 11, 0.08), 0 4px 12px -2px rgba(9, 9, 11, 0.04), var(--specular-top);
+  --shadow-dropdown: 0 0 0 1px var(--border-strong), 0 20px 40px -12px rgba(9, 9, 11, 0.12), var(--specular-top);
+}
+
+/* Optical Typography & Numeric Rules */
+.display-headline {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.micro-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Strict Custom Focus Visible - Double Ring Treatment */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-canvas), 0 0 0 4px var(--focus-ring);
+}
+
+/* View Transition Styles for Circular Clip-Path Reveal */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Subtle Architectural Grid Pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
